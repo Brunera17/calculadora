@@ -25,13 +25,17 @@ def operacoes():
 
 def calculo(operacao, num1, num2):
     if operacao == 1:
-        return soma(num1, num2)
+        texto = "soma"
+        return soma(num1, num2), texto
     elif operacao == 2:
-        return subtracao(num1, num2)
+        texto = "subtração"
+        return subtracao(num1, num2), texto
     elif operacao == 3:
-        return multiplicacao(num1, num2)
+        texto = "multiplicação"
+        return multiplicacao(num1, num2), texto
     elif operacao == 4:
-        return divisao(num1, num2)
+        texto = "divisão"
+        return divisao(num1, num2), texto
     else:
         print("Operação inválida")
         operacao = 5
@@ -42,12 +46,12 @@ operacao, num1, num2 = operacoes()
 
 while operacao != 0:
     try:
-        calculo = calculo(operacao, num1, num2)
+        resultado, texto = calculo(operacao, num1, num2)
     except ZeroDivisionError:
         print("Erro: Divisão por zero não é permitida.")
     if operacao != 5:
         print("---------------------")
-        print(f"A {texto} dos numeros é igual a: {calculo}")
+        print(f"A {texto} dos numeros é igual a: {resultado}")
         print("---------------------")
     operacao, num1, num2 = operacoes()
 print("Até mais!")
